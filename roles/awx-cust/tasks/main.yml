@@ -36,4 +36,4 @@
       - "roles/{{ role_name }}/files/awx-values.yml"
 
 - include_tasks:
-    file: configure.yml
+    file: awx_config.yml
