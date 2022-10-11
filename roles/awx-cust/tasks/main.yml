@@ -1,0 +1,39 @@
+---
+- name: Create namespace for AWX
+  kubernetes.core.k8s:
+    name: "{{ awx_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    
+- name: Add AWX chart repo
+  kubernetes.core.helm_repository:
+    name: adwerx
+    repo_url: "https://adwerx.github.io/charts/"
+
+- include_tasks:
+    file: create-secrets.yml
+
+- name: Template Helm values file
+  ansible.builtin.template:
+    src: awx-values.yml.j2
+    dest: "roles/{{ role_name }}/files/awx-values.yml"
+    owner: "{{ ace_box_user }}"
+    group: "{{ ace_box_user }}"
+    mode: '0644'
+
+- name: Install AWX
+  kubernetes.core.helm:
+    name: awx
+    chart_ref: adwerx/awx
+    chart_version: "{{ awx_helm_chart_version }}"
+    update_repo_cache: true
+    release_namespace: "{{ awx_namespace }}"
+    create_namespace: true
+    wait: true
+    wait_timeout: 15m
+    values_files:
+      - "roles/{{ role_name }}/files/awx-values.yml"
+
+- include_tasks:
+    file: configure.yml

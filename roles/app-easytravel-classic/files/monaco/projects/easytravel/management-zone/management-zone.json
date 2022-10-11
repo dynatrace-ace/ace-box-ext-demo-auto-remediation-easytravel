@@ -1,0 +1,35 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "SERVICE",
+      "enabled": true,
+      "propagationTypes": [
+        "SERVICE_TO_HOST_LIKE",
+        "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_GROUP_NAME",
+            "type": "STATIC"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "{{ .hostGroupName }}",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    }
+  ],
+  "dimensionalRules": [],
+  "entitySelectorBasedRules": [
+    {
+      "enabled": true,
+      "entitySelector": "type(\"APPLICATION\"),entityName(\"{{ .applicationEntityName }}\")"
+    }
+  ]
+}
