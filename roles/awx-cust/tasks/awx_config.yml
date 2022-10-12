@@ -403,7 +403,7 @@
       organization: "{{ organization.id }}"
       inventory: "{{ inventory.id }}"
       project: "{{ project.id }}"
-      playbook: "playbooks/remediation.yaml"
+      playbook: "playbooks/remediation.yml"
       verbosity: 0
       ask_variables_on_launch: true
       credentials:
