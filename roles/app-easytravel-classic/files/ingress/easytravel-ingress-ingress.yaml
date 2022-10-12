@@ -1,0 +1,38 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: public
+  name: easytravel-web
+  namespace: easytravel-classic
+spec:
+  rules:
+  - host: easytravel-web.acebox-kr.ace-innovation.info
+    http:
+      paths:
+      - backend:
+          service:
+            name: nginx-custom-web
+            port:
+              name: http
+        path: /
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: public
+  name: easytravel-launcher
+  namespace: easytravel-classic
+spec:
+  rules:
+  - host: easytravel-web.acebox-kr.ace-innovation.info
+    http:
+      paths:
+      - backend:
+          service:
+            name: nginx-custom-launcher
+            port:
+              name: http
+        path: /

@@ -36,13 +36,13 @@
       cmd: "/bin/bash installChromeDeps.sh"
       chdir: "{{ easytravel_classic_install_location }}/resources"
   - shell: 
-      cmd: "sed -i 's|^config.apacheWebServerPort=8079|config.apacheWebServerPort=80|g' easyTravelConfig.properties"
+      cmd: "sed -i 's|^config.apacheWebServerPort=8079|config.apacheWebServerPort=8079|g' easyTravelConfig.properties"
       chdir: "{{ easytravel_classic_install_location }}/resources"
   - shell: 
-      cmd: "sed -i 's|^config.nginxWebServerPort=8079|config.nginxWebServerPort=80|g' easyTravelConfig.properties"
+      cmd: "sed -i 's|^config.nginxWebServerPort=8079|config.nginxWebServerPort=8079|g' easyTravelConfig.properties"
       chdir: "{{ easytravel_classic_install_location }}/resources"
   - shell: 
-      cmd: "sed -i 's|^config.weblauncherPort=8094|config.weblauncherPort=8080|g' easyTravelConfig.properties"
+      cmd: "sed -i 's|^config.weblauncherPort=8094|config.weblauncherPort=8094|g' easyTravelConfig.properties"
       chdir: "{{ easytravel_classic_install_location }}/resources"
   - become: true
     become_user: root
