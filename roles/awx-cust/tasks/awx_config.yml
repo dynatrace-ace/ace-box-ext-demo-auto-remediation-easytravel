@@ -11,6 +11,17 @@
       #awx_url: "{{ awx_internal_endpoint }}"
       awx_user: "{{ awx_admin_user }}"
       awx_password: "{{ awx_admin_password }}"
+  
+  - name: AWX - Source Gitea secrets
+    include_role:
+      name: gitea
+      tasks_from: source-secret
+
+  - name: AWX - Set Git fact
+    set_fact:
+      git_url: "{{ ingress_protocol }}://gitea.{{ ingress_domain }}"
+      git_password: "{{ gitea_password }}"
+      git_username: "{{ gitea_username }}"
 
   - name: AWX - Wait for API to be up
     uri:
