@@ -312,13 +312,17 @@
   #     body_format: json
 
   - name: Add host easyTravel to inventory
-    host:
+    awx.awx.host:
       name: easyTravel
       description: "EasyTravel Host"
       inventory: "{{ inventory.id }}"
       state: present
       variables:
         ansible_host: "{{ ingress_domain }}"
+      controller_host: "{{ awx_internal_endpoint }}"
+      controller_password: "{{ awx_admin_password }}"
+      controller_username: "{{ awx_admin_username }}"
+    register: easytravel_host
 
   # - name: create localhost for inventory
   #   uri:
