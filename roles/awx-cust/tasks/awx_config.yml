@@ -1,4 +1,10 @@
 ---
+  - include_tasks:
+      file: source-secrets.yml
+
+  - include_tasks:
+      file: source-endpoints.yml
+
   - name: set fact for ansible AWX URL
     set_fact:
       awx_url: "http://{{ awx_ingress_domain }}"
