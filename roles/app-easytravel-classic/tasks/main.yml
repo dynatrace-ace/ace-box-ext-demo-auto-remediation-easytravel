@@ -79,7 +79,7 @@
 
 - name: Wait for Easytravel to be up
   uri:
-    url: "http://localhost:8080/main"
+    url: "http://localhost:8094/main"
     status_code: 200
     validate_certs: no
   register: result
