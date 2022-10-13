@@ -14,7 +14,7 @@ spec:
           service:
             name: nginx-custom-web
             port:
-              name: http
+              name: nginx
         path: /
         pathType: ImplementationSpecific
 ---
@@ -33,6 +33,6 @@ spec:
           service:
             name: nginx-custom-launcher
             port:
-              name: http
+              name: nginx
         path: /
         pathType: ImplementationSpecific

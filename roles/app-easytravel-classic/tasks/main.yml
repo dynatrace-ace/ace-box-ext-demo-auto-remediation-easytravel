@@ -39,8 +39,8 @@
         #config.frontendPortRangeStart=8050
         #config.frontendPortRangeEnd=8060
         # Override host
-        #config.apacheFrontendPublicUrl={{ ingress_protocol }}://{{ ingress_domain }}:8080/
-        #config.angularFrontendPublicUrl={{ ingress_protocol }}://{{ ingress_domain }}/
+        config.apacheFrontendPublicUrl={{ easytravel_classic_apache_domain }}
+        config.angularFrontendPublicUrl={{ easytravel_classic_nginx_domain }}
       dest: "/home/{{ ace_box_user }}/.dynaTrace/easyTravel 2.0.0/easyTravel/config/easyTravelLocal.properties"
 
 - name: Run installer
