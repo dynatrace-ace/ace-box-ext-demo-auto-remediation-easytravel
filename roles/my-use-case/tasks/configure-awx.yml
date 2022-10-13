@@ -102,8 +102,9 @@
       state: present
       credential_type: "Machine"
       inputs:
-        username: "{{ ace_box_user }}"
-        password: "{{ ace_box_user }}"
+        username: "{{ ansible_user }}"
+        #password: "{{ ace_box_user }}"
+        ssh_key_data: "{{ lookup('file', '/tmp/ansible_id_rsa') }}"
         become_method: sudo
       controller_host: "{{ awx_internal_endpoint }}"
       controller_password: "{{ awx_admin_password }}"
