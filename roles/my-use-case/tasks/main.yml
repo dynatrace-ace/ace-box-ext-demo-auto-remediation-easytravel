@@ -12,9 +12,9 @@
     name: app-easytravel-classic
     tasks_from: deploy-ingress
 
-- include_role:
-    name: "app-easytravel-classic"
-    tasks_from: apply-monaco
+# - include_role:
+#     name: "app-easytravel-classic"
+#     tasks_from: apply-monaco
 
 - include_role:
     name: gitea
