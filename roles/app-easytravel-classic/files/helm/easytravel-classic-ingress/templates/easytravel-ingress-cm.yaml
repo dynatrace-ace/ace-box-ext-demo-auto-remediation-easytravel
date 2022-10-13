@@ -24,7 +24,7 @@ data:
       server {
         listen 80;
 
-        server_name ~^(?<subdomain>.*?)\.;
+        server_name easytravel-web
         resolver kube-dns.kube-system.svc.cluster.local valid=5s;
 
         location /healthz {
@@ -34,7 +34,7 @@ data:
         location / {
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection "Upgrade";
-          proxy_pass http://localhost:8079;
+          proxy_pass http://{{ .Values.private_ip }}:{{ .Values.easytravel_classic_apache_port }};
           proxy_set_header Host $host;
           proxy_http_version 1.1;
         }
@@ -67,7 +67,7 @@ data:
       server {
         listen 80;
 
-        server_name ~^(?<subdomain>.*?)\.;
+        server_name easytravel-launcher.acebox-kr.ace-innovation.info;
         resolver kube-dns.kube-system.svc.cluster.local valid=5s;
 
         location /healthz {
@@ -77,7 +77,7 @@ data:
         location / {
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection "Upgrade";
-          proxy_pass http://localhost:8094;
+          proxy_pass http://{{ .Values.private_ip }}:{{ .Values.easytravel_classic_launcher_port }};
           proxy_set_header Host $host;
           proxy_http_version 1.1;
         }
