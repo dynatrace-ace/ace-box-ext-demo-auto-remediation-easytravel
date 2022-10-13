@@ -14,6 +14,6 @@
       easytravel_classic_nginx_port: 8078
       easytravel_classic_launcher_port: 8094
       ingress:
-        domain: "{{ easytravel_classic_apache_domain }}"
+        domain: "{{ easytravel_classic_domain }}"
         angular_domain: "{{ easytravel_classic_angular_domain }}"
         launcher_domain: "{{ easytravel_classic_launcher_domain }}"
