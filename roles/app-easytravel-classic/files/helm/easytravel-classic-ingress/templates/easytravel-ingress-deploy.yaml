@@ -59,3 +59,33 @@ spec:
         - name: nginx-config
           configMap:
             name: easytravellauncher-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-nginx
+  labels:
+    app: nginx-nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+          - containerPort: 80
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: easytravelnginx-config

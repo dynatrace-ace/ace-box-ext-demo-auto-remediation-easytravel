@@ -10,6 +10,14 @@
 
 - include_role:
     name: gitea
+    tasks_from: deploy-ingress
+
+- include_role:
+    name: "app-easytravel-classic"
+    tasks_from: apply-monaco
+
+- include_role:
+    name: gitea
 
 - include_role:
     name: gitea
@@ -49,3 +57,9 @@
 
 - include_role:
     name: "awx-cust"
+
+- include_tasks:
+    file: configure-awx.yml
+
+- include_tasks:
+    file: create-user.yml
