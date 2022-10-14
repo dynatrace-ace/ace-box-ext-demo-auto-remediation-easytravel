@@ -1,0 +1,24 @@
+---
+useCases:
+  auto-remediation-easytravel:
+    previews:
+    - section: easytravel-classic-web
+      description: EasyTravel Web
+      url: "{{ easytravel_classic_domain }}"
+    - section: easytravel-classic-angular
+      description: EasyTravel Web
+      url: "{{ easytravel_classic_angular_domain }}"
+    guides:
+    - description: "This is a template as well as example repository for ACE-Box external use cases"
+      url: "https://github.com/dynatrace-ace/ace-box-ext-template/blob/HEAD/README.md"
+
+extRefs:
+  EasyTravel Launcher:
+    url: "{{ easytravel_classic_launcher_domain }}"
+    description: "EasyTravel Launcher App is available at {{ easytravel_classic_launcher_domain }}"
+  EasyTravel Web:
+    url: "{{ easytravel_classic_domain }}"
+    description: "EasyTravel Web is available at {{ easytravel_classic_domain }}. Note: you need to launch it first using the EasyTravel Launcher"
+  EasyTravel Angular:
+    url: "{{ easytravel_classic_angular_domain }}"
+    description: "EasyTravel Web is available at {{ easytravel_classic_angular_domain }}. Note: you need to launch it first using the EasyTravel Launcher"
