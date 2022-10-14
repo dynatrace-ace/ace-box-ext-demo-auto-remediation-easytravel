@@ -1,0 +1,92 @@
+{
+    "displayName": "{{ .name }}",
+    "rules": [
+      {
+        "severityLevel": "RESOURCE_CONTENTION",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      },
+      {
+        "severityLevel": "PERFORMANCE",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      },
+      {
+        "severityLevel": "ERROR",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      },
+      {
+        "severityLevel": "AVAILABILITY",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      },
+      {
+        "severityLevel": "MONITORING_UNAVAILABLE",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      },
+      {
+        "severityLevel": "CUSTOM_ALERT",
+        "tagFilter": {
+          "includeMode": "INCLUDE_ALL",
+          "tagFilters": [
+            {
+              "context": "CONTEXTLESS",
+              "key": "support_group",
+              "value": "easyTravel-Support"
+            }
+          ]
+        },
+        "delayInMinutes": 0
+      }
+    ],
+    "managementZoneId": "{{ .managementZoneId }}",
+    "mzId": "{{ .managementZoneId }}",
+    "eventTypeFilters": []
+  }

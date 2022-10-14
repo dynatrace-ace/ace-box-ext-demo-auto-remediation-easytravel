@@ -1,0 +1,13 @@
+{
+    "type": "SERVICE_NOW",
+    "name": "{{ .name }}",
+    "alertingProfile": "{{ .alertingProfile }}",
+    "active": true,
+    "instanceName": "{{ .snowInstance }}",
+    "url": null,
+    "username": "{{ .snowUser }}",
+    "password": "{{ .snowPassword }}",
+    "message": "{ProblemTitle}",
+    "sendIncidents": false,
+    "sendEvents": true
+  }

@@ -12,6 +12,22 @@
     name: app-easytravel-classic
     tasks_from: deploy-ingress
 
+- set_fact:
+    monaco_projects_folder: "{{ role_path }}/files/monaco/projects"
+
+- name: Auto Remediation - Apply Monitoring as Code
+  include_role:
+    name: monaco
+    tasks_from: apply-monaco
+    apply:
+      environment:
+        SNOW_INSTANCE: "{{ servicenow_instance_id }}"
+        SNOW_USER: "{{ servicenow_instance_user }}"
+        SNOW_PASSWORD: "{{ servicenow_instance_password}}"
+  vars:
+    monaco_project: "easytravel"
+    monaco_projects_root: "{{ monaco_projects_folder }}" 
+
 # - include_role:
 #     name: "app-easytravel-classic"
 #     tasks_from: apply-monaco

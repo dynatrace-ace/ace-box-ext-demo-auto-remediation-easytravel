@@ -1,0 +1,10 @@
+
+config:
+  - notification-snow: "snow.json"
+  
+notification-snow:
+  - name: "{{ .Env.SNOW_INSTANCE }}"
+  - alertingProfile: "/easytravel/alerting-profile/alerting-profile-easytravel-classic.id"
+  - snowInstance: "{{ .Env.SNOW_INSTANCE }}"
+  - snowUser: "{{ .Env.SNOW_USER }}"
+  - snowPassword: "{{ .Env.SNOW_PASSWORD }}"

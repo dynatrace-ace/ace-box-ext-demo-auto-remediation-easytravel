@@ -164,7 +164,7 @@
       inventory: "{{ inventory.id }}"
       state: present
       variables:
-        ansible_host: "{{ ingress_domain }}"
+        ansible_host: "{{ ace_box_private_ip }}"
       controller_host: "{{ awx_internal_endpoint }}"
       controller_password: "{{ awx_admin_password }}"
       controller_username: "{{ awx_admin_username }}"
