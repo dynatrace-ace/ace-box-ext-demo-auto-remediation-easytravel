@@ -11,7 +11,7 @@
 - include_role:
     name: "app-easytravel-classic"
   vars:
-    easytravel_classic_release_stage: "{{ easytravel_classic_release_stage }}"
+    easytravel_classic_release_stage: "{{ easytravel_release_stage_ }}"
 
 - include_role:
     name: app-easytravel-classic
@@ -26,7 +26,7 @@
     tasks_from: apply-monaco
     apply:
       environment:
-        ET_RELEASE_STAGE: "{{ easytravel_classic_release_stage }}"
+        ET_RELEASE_STAGE: "{{ easytravel_release_stage_ }}"
         SNOW_INSTANCE: "{{ extra_vars.servicenow_instance_id }}"
         SNOW_USER: "{{ extra_vars.servicenow_instance_user }}"
         SNOW_PASSWORD: "{{ extra_vars.servicenow_instance_password}}"
