@@ -1,9 +1,11 @@
 ---
-  - include_tasks:
-      file: source-secrets.yml
+  - include_role:
+      name: awx
+      tasks_from: source-secrets
 
-  - include_tasks:
-      file: source-endpoints.yml
+  - include_role:
+      name: awx
+      tasks_from: source-endpoints
 
   - name: set fact for ansible AWX URL
     set_fact:
