@@ -10,6 +10,8 @@
 
 - include_role:
     name: "app-easytravel-classic"
+  vars:
+    easytravel_classic_release_stage: "{{ easytravel_classic_release_stage }}"
 
 - include_role:
     name: app-easytravel-classic
