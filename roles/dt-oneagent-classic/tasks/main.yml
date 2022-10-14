@@ -21,4 +21,5 @@
   become_user: root
   shell:
     cmd: "/bin/sh {{ dt_oneagent_classic_download_location }} --set-host-group={{ host_group }}"
-  creates: "/opt/dynatrace/oneagent"
+  args:
+    creates: "/opt/dynatrace/oneagent"
