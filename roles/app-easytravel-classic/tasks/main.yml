@@ -41,6 +41,8 @@
         # Override host
         config.apacheFrontendPublicUrl={{ ingress_protocol }}://{{ easytravel_classic_domain }}
         config.angularFrontendPublicUrl={{ ingress_protocol }}://{{ easytravel_classic_angular_domain }}
+        # Set stage for Release Inventory
+        config.dtReleaseStage = {{ easytravel_classic_release_stage }}
       dest: "/home/{{ ace_box_user }}/.dynaTrace/easyTravel 2.0.0/easyTravel/config/easyTravelLocal.properties"
 
 - name: Run installer
