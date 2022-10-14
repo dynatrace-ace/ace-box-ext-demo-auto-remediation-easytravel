@@ -64,6 +64,9 @@
 - include_tasks:
     file: configure-awx.yml
 
+- include_role:
+    name: app-easytravel-classic
+    tasks_from: source-endpoints
 # Include use case specific Dahboard values
 - set_fact:
     include_dashboard_value_file: "{{ role_path }}/templates/auto-remediation-dashboard.yml.j2"
