@@ -1,5 +1,5 @@
 ---
-- name: Source endpoints
+- name: Source internal endpoints
   kubernetes.core.k8s_info:
     kind: Service
     name: "awx"
@@ -9,4 +9,5 @@
 - name: Set facts
   set_fact:
     awx_internal_endpoint: "http://{{ awx_data.resources[0].spec.clusterIP }}:8080"
+    awx_ingress_domain: "{{ awx_ingress_domain }}"
   when: awx_data is defined and awx_data.resources[0] is defined
