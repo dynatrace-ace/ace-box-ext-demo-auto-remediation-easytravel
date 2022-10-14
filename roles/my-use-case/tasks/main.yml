@@ -24,6 +24,7 @@
     tasks_from: apply-monaco
     apply:
       environment:
+        ET_RELEASE_STAGE: "{{ easytravel_classic_release_stage }}"
         SNOW_INSTANCE: "{{ extra_vars.servicenow_instance_id }}"
         SNOW_USER: "{{ extra_vars.servicenow_instance_user }}"
         SNOW_PASSWORD: "{{ extra_vars.servicenow_instance_password}}"

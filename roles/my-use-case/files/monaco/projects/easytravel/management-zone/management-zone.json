@@ -21,7 +21,7 @@
             "value": {
               "context": "ENVIRONMENT",
               "key": "DT_RELEASE_STAGE",
-              "value": "demo"
+              "value": "{{ .release-stage }}"
             },
             "negate": false
           }
