@@ -4,4 +4,4 @@ config:
 
 management-zone-easytravel:
   - name: "EasyTravel Classic"
-  - release-stage: "{{ .Env.ET_RELEASE_STAGE }}"
+  - release_stage: "{{ .Env.ET_RELEASE_STAGE }}"
