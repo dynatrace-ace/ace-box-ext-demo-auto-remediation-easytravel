@@ -3,11 +3,13 @@
   shell: "ssh-keygen -q -t rsa -N '' -f /tmp/ansible_id_rsa <<<y >/dev/null 2>&1"
   args:
         executable: /bin/bash
+
 - name: Ensure group "somegroup" exists
   ansible.builtin.group:
         name: "{{ ansible_user_group }}"
         state: present
   become: true
+  become_user: root
 
 - name: Create User
   ansible.builtin.user:
@@ -17,6 +19,7 @@
         groups: "{{ ansible_user_group }}"
         append: yes
   become: true
+  become_user: root
 
 - name: Deploy SSH Public Key
   ansible.posix.authorized_key:
@@ -24,4 +27,5 @@
         state: present
         key: "{{ lookup('file', '/tmp/ansible_id_rsa.pub') }}"
   become: true
+  become_user: root
 
