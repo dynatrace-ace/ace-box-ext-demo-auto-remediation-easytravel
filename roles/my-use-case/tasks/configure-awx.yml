@@ -37,7 +37,7 @@
 
   - name: Create default organization
     awx.awx.organization:
-      name: "{{ awx_default_org_name }}"
+      name: "{{ awx_org }}"
       description: "Default organization"
       state: present
       controller_host: "{{ awx_internal_endpoint }}"
