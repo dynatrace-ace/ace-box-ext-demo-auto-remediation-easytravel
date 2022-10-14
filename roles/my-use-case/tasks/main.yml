@@ -3,6 +3,9 @@
     name: "microk8s"
 
 - include_role:
+    name: "monaco"
+
+- include_role:
     name: "dt-oneagent-classic"
 
 - include_role:
