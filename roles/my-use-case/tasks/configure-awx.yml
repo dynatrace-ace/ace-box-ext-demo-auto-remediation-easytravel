@@ -11,7 +11,7 @@
     set_fact:
       #awx_url: "http://{{ awx_ingress_domain }}"
       awx_url: "{{ awx_internal_endpoint }}"
-      awx_user: "{{ awx_admin_user }}"
+      awx_user: "{{ awx_admin_username }}"
       awx_password: "{{ awx_admin_password }}"
   
   - name: AWX - Source Gitea secrets
