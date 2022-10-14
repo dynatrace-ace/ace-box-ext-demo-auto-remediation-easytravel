@@ -1,0 +1,6 @@
+---
+config:
+  - management-zone-easytravel: "management-zone.json"
+
+management-zone-easytravel:
+  - name: "EasyTravel Classic"
