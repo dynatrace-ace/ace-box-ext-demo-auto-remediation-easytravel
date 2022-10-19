@@ -150,7 +150,7 @@
         dt_metrics_api: /api/v2/metrics/ 
         dt_comment_user: 'ansible'
         dt_comment_context: 'ansible AWX'
-        awx_dns_name: "{{ awx_ingress_domain }}"
+        awx_dns_name: "awx.{{ ingress_domain }}"
       state: present
       controller_host: "{{ awx_internal_endpoint }}"
       controller_password: "{{ awx_admin_password }}"

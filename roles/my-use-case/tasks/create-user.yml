@@ -4,14 +4,14 @@
   args:
         executable: /bin/bash
 
-- name: Ensure group "somegroup" exists
+- name: "Ensure group {{ ansible_user_group }} exists"
   ansible.builtin.group:
         name: "{{ ansible_user_group }}"
         state: present
   become: true
   become_user: root
 
-- name: Create User
+- name: "Ensure user {{ ansible_user }} exists"
   ansible.builtin.user:
         name: "{{ ansible_user }}"
         state: present
