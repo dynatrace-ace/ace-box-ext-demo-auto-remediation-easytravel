@@ -3,7 +3,7 @@ config:
   - notification-snow: "snow.json"
   
 notification-snow:
-  - name: "{{ .Env.SNOW_INSTANCE }}"
+  - name: "{{ .Env.SNOW_INSTANCE }} - Auto Remediation"
   - alertingProfile: "/easytravel/alerting-profile/alerting-profile-easytravel-classic.id"
   - snowInstance: "{{ .Env.SNOW_INSTANCE }}"
   - snowUser: "{{ .Env.SNOW_USER }}"
