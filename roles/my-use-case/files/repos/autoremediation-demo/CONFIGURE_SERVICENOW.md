@@ -1,44 +1,7 @@
-# ace-box-ext-demo-auto-remediation-easytravel
-
-This external use case contains a demo for Auto Remediation using Dynatrace + Ansible Tower + ServiceNow.
-
-## Components deployed
-
-The following components get deployed:
-
-- MicroK8s
-- Dynatrace OneAgent
-- EasyTravel "Classic" with the EasyTravel Launcher App exposed via ingress
-- AWX (Ansible Tower open source)
-
-## Prerequisites
-
-- A Dynatrace Environment
-- A [ServiceNow developer instance](https://developer.servicenow.com/dev.do) (tested with the Tokyo release of ServiceNow)
-
-> Note: while this was tested with ServiceNow Tokyo, screenshots below are from an older release
-
-## Running the sandbox
-
-Check out [ace-box documentation](https://github.com/Dynatrace/ace-box/blob/dev/docs/external-use-case.md) for more information and provite this git repo URL as the use-case!
-
-```
-use_case="https://github.com/dynatrace-ace/ace-box-ext-demo-auto-remediation-easytravel.git"
-```
-
-In addition, the following extra vars need to be provided:
-```
-extra_vars = {
-  servicenow_instance_id       = <servicenow_instance_id> # e.g. "dev12345"
-  servicenow_instance_user     = <servicenow_instance_user> 
-  servicenow_instance_password = <servicenow_instance_password>
-}
-```
-
-## Setting up the demo
+# Setting up the demo
 In order to run the demo, a few extra steps need to be completed once the ACE-BOX has been provisioned
 
-### ServiceNow Plugins
+## ServiceNow Plugins
 
 If you already have the plugins below activated you can skip this step.
 
@@ -55,9 +18,9 @@ The following plugins must be enabled prior to this lab:
 
     ![ih-plugin](./assets/images/integration-hub-plugin.png)
 
-### Configure ServiceNow
+## Configure ServiceNow
 
-#### Install ServiceNow Update Set
+### Install ServiceNow Update Set
 
 A ServiceNow Update Set is provided to run this tutorial. To install the Update Set follow these steps:
 
@@ -77,7 +40,7 @@ A ServiceNow Update Set is provided to run this tutorial. To install the Update 
     ![servicenow-commit-updateset](./assets/images/servicenow-commit-updateset.png)
 1. Review the newly imported subflow named `Trigger ansible AWX Template` by navigating to `Process Automation` -> `Flow Designer`. Click on the Subflows tab and then search for `Trigger ansible AWX Template` under the Name column.
 
-#### Create easyTravel support group
+### Create easyTravel support group
 
 1. On your ServiceNow instance go to `User Administration` -> `Groups`.
 
@@ -89,7 +52,7 @@ A ServiceNow Update Set is provided to run this tutorial. To install the Update 
 
 1. Click `Submit`.
 
-#### Verify Remediation subflow
+### Verify Remediation subflow
 
 1. In ServiceNow, navigate to `Process Automation` -> `Flow Designer`, after clicking on Flow designer a new tab will open on your browser.
 
@@ -104,7 +67,9 @@ A ServiceNow Update Set is provided to run this tutorial. To install the Update 
 
     ![ansible-tower-remediation](./assets/images/ansible-awx-templateremediation.png)
 
-#### Create Basic Auth Credential
+1. If changes are needed, make sure to Save them and also to Publish them!
+
+### Create Basic Auth Credential
 
 1. Navigate to `Integration Hub -> Connections & Credentials -> Credential` and click on `New`:
 
@@ -122,7 +87,7 @@ A ServiceNow Update Set is provided to run this tutorial. To install the Update 
 
 1. Click `Submit`.
 
-#### Create Ansible AWX Connection
+### Create Ansible AWX Connection
 
 1. Navigate to `Integration Hub -> Connections & Credentials -> Connection & Credential Aliases` and click on the `Ansible AWX` Connection Alias:
 
