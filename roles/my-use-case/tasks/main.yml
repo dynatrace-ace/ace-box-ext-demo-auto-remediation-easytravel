@@ -74,11 +74,11 @@
   when: new_repo_created is defined and new_repo_created == true
 
 - include_role:
-    name: awx-cust
+    name: awx
     tasks_from: create-secrets
 
 - include_role:
-    name: "awx-cust"
+    name: "awx"
 
 - include_tasks:
     file: create-user.yml
