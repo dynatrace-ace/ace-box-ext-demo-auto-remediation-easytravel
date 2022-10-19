@@ -13,6 +13,15 @@ useCases:
       url: "{{ ingress_protocol }}://gitea.{{ ingress_domain }}/{{ demo_auto_remediation_org }}/{{ demo_auto_remediation_repo_name }}"
 
 extRefs:
+  ServiceNow:
+    url: "https://{{ extra_vars.servicenow_instance_id }}.service-now.com"
+    creds:
+      - description: Username
+        type: text
+        value: "{{ extra_vars.servicenow_instance_user }}"
+      - description: Password
+        type: password
+        value: "{{ extra_vars.servicenow_instance_password}}"
   EasyTravel Launcher:
     url: "{{ easytravel_classic_launcher_endpoint }}"
     description: "EasyTravel Launcher App is available at {{ easytravel_classic_launcher_endpoint }}"
