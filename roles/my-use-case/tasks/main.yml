@@ -81,6 +81,9 @@
 
 - include_role:
     name: "awx"
+  vars:
+    awx_helm_chart_version: "3.4.3"
+    awx_version: "21.7.0"
 
 - include_tasks:
     file: create-user.yml
