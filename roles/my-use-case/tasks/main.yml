@@ -4,6 +4,8 @@
 
 - include_role:
     name: "monaco"
+  vars:
+    monaco_version: "v1.8.5"
 
 - include_role:
     name: "dt-oneagent-classic"
