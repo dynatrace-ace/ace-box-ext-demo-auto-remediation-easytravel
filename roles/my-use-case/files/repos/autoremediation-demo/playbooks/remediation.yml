@@ -11,7 +11,7 @@
       use_proxy: no
       headers:
         Content-Type: "application/json"
-        Authorization: "Api-token {{ dynatrace_api_token }}"
+        Authorization: "Api-token {{ DYNATRACE_API_TOKEN }}"
       body:
         comment: 'Ansible Play Started ({{ tower_job_id | default("0") }}): {{ awx_template_name }} - Remediation started -- [Ansible Job](http://{{ awx_dns_name }}/#/jobs/playbook/{{ tower_job_id | default("0") }})'
         user: '{{ dt_comment_user }}'
@@ -26,7 +26,7 @@
       return_content: yes
       headers:
         Content-Type: "application/json"
-        Authorization: "Api-token {{ dynatrace_api_token }}"
+        Authorization: "Api-token {{ DYNATRACE_API_TOKEN }}"
       body_format: json
     register: dtprocessresponse
 
@@ -42,7 +42,7 @@
       return_content: yes
       headers:
         Content-Type: "application/json"
-        Authorization: "Api-token {{ dynatrace_api_token }}"
+        Authorization: "Api-token {{ DYNATRACE_API_TOKEN }}"
       body_format: json
     register: dthostresponse
 
@@ -86,7 +86,7 @@
       use_proxy: no
       headers:
         Content-Type: "application/json"
-        Authorization: "Api-token {{ dynatrace_api_token }}"
+        Authorization: "Api-token {{ DYNATRACE_API_TOKEN }}"
       body:
         comment: 'Ansible Play Started ({{ tower_job_id | default("0") }}): {{ awx_template_name }} - Remediation completed successfully -- [Ansible Job](http://{{ awx_dns_name }}/#/jobs/playbook/{{ tower_job_id | default("0") }})'
         user: '{{ dt_comment_user }}'
