@@ -36,22 +36,3 @@ spec:
               name: nginx
         path: /
         pathType: ImplementationSpecific
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.class }}
-  name: easytravel-angular
-spec:
-  rules:
-  - host: {{ .Values.ingress.angular_domain }}
-    http:
-      paths:
-      - backend:
-          service:
-            name: nginx-custom-nginx
-            port:
-              name: nginx
-        path: /
-        pathType: ImplementationSpecific

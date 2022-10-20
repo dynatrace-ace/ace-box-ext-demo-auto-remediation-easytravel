@@ -34,13 +34,13 @@
       content: |-
         config.weblauncherPort={{ easytravel_classic_launcher_port}}
         config.apacheWebServerPort={{ easytravel_classic_apache_port }}
-        config.nginxWebServerPort={{ easytravel_classic_nginx_port }}
+        config.nginxWebServerPort={{ easytravel_classic_apache_port }}
         # Make sure port 8080 is free for HAProxy
         #config.frontendPortRangeStart=8050
         #config.frontendPortRangeEnd=8060
         # Override host
         config.apacheFrontendPublicUrl={{ ingress_protocol }}://{{ easytravel_classic_domain }}
-        config.angularFrontendPublicUrl={{ ingress_protocol }}://{{ easytravel_classic_angular_domain }}
+        config.angularFrontendPublicUrl={{ ingress_protocol }}://{{ easytravel_classic_domain }}
         # Set stage for Release Inventory
         config.dtReleaseStage = {{ easytravel_classic_release_stage }}
       dest: "/home/{{ ace_box_user }}/.dynaTrace/easyTravel 2.0.0/easyTravel/config/easyTravelLocal.properties"
@@ -73,44 +73,6 @@
         [Install]
         WantedBy=multi-user.target
       dest: "/etc/systemd/system/easytravel.service"
-
-# - name: Run installer
-#   block:
-#   - shell: 
-#       cmd: "java -jar {{ easytravel_classic_download_location }} -y"
-#       chdir: "{{ role_path }}/files"
-#     when: not easytravel_classic_install_location is exists
-#   - become: true
-#     become_user: root
-#     shell: 
-#       cmd: "/bin/bash installChromeDeps.sh"
-#       chdir: "{{ easytravel_classic_install_location }}/resources"
-#   - shell: 
-#       cmd: "sed -i 's|^config.apacheWebServerPort=8079|config.apacheWebServerPort=8079|g' easyTravelConfig.properties"
-#       chdir: "{{ easytravel_classic_install_location }}/resources"
-#   - shell: 
-#       cmd: "sed -i 's|^config.nginxWebServerPort=8079|config.nginxWebServerPort=8079|g' easyTravelConfig.properties"
-#       chdir: "{{ easytravel_classic_install_location }}/resources"
-#   - shell: 
-#       cmd: "sed -i 's|^config.weblauncherPort=8094|config.weblauncherPort=8094|g' easyTravelConfig.properties"
-#       chdir: "{{ easytravel_classic_install_location }}/resources"
-#   - become: true
-#     become_user: root
-#     copy:
-#       content: |-
-#         [Unit]
-#         Description=easytravel launcher
-#         Requires=network-online.target
-#         After=network-online.target
-
-#         [Service]
-#         Restart=on-failure
-#         ExecStart={{ easytravel_classic_install_location }}/weblauncher/weblauncher.sh
-#         ExecReload=/bin/kill -HUP $MAINPID
-
-#         [Install]
-#         WantedBy=multi-user.target
-#       dest: "/etc/systemd/system/easytravel.service"
 
 - name: Enable service easytravel
   become: true
