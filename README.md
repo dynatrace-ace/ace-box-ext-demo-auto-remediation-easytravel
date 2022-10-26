@@ -2,6 +2,13 @@
 
 This external use case contains a demo for Auto Remediation using Dynatrace + Ansible Tower + ServiceNow.
 
+## Release overview and ACE-BOX support
+
+Please see below table on ace-box support:
+| Use Case Version | Supported ACE Box version |
+| --- | --- |
+| 1.0 | TBC |
+
 ## Components deployed
 
 The following components get deployed:

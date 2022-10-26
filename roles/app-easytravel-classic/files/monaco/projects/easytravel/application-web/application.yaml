@@ -2,4 +2,4 @@ config:
     - app-easytravel-classic: "easytravel.json"
   
 app-easytravel-classic:
-    - name: "app.easytravel ({{ .Env.HOST_GROUP_NAME }})"
+    - name: "app.easytravel.classic"
