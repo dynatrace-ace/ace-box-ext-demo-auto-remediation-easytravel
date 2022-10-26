@@ -5,7 +5,7 @@
 
   - include_role:
       name: awx
-      tasks_from: source-endpoints
+      tasks_from: source-configuration
 
   - name: set fact for ansible AWX URL
     set_fact:
