@@ -4,6 +4,23 @@
 
 
 
+## Launch EasyTravel
+1. From the ACE Dashboard, open the EasyTravel Launcher from the `Links` section
+
+    ![ace-dashboard-et-launcher](.assets/../assets/images/ace-dashboard-easytravel-launcher.png)
+
+1. Within the EasyTravel Launcher, launch the `Standard` scenario by clicking on it
+
+    ![ace-dashboard-et-launcher](.assets/../assets/images/easytravel-launcher.png)
+
+1. After a few minutes, all components will be in an `Operating` state and EasyTravel will become available for use
+
+    ![ace-dashboard-et-launcher](.assets/../assets/images/easytravel-launcher-operating.png)
+
+1. A few minutes after that, verify that in Dynatrace you have the EasyTravel services monitored under the `EasyTravel Classic` Management Zone
+
+    ![ace-dashboard-et-launcher](.assets/../assets/images/dynatrace-services-easytravel.png)
+
 ## Trigger problem
 
 1. In Ansible AWX, navigate to `Templates` and click on the "rocket" icon next to the template named `Trigger Memory Leak on Backend`.
