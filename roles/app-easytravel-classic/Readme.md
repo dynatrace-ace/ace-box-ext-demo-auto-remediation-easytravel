@@ -6,7 +6,7 @@ This role does not reploy EasyTravel on Kubernetes, but rather directly on the V
 ## Using the role
 
 ### Role Requirements
-Tthis role has no direct dependencies on other roles.
+This role has no direct dependencies on other roles.
 
 ### Deploying EasyTravel
 
@@ -37,18 +37,38 @@ easytravel_classic_release_stage: "easytravel-classic" # For the Release Invento
     name: dt-oneagent-classic
 ```
 
+### (Optional) To expose EasyTravel classic using the k8s Ingress controller 
+By default EasyTravel classic is exposed on the local machine's ports, controlled by the folliwing variables:
+```yaml
+easytravel_classic_apache_port: 8079 #Which port on the local machine exposes EasyTravel
+easytravel_classic_launcher_port: 8094 #Which port on the local machine exposes EasyTravel Launcher
+```
+
+If you want to leverage the Kubernetes ingress controller to expose both services on a subdomain, you can do this as follows.
+
+> Note: This requires the `microk8s` role to be deployed
+```yaml
+- include_role:
+    name: app-easytravel-classic
+    tasks_from: deploy-ingress
+```
+
+The subdomains that are being used are controlled by the following variables:
+```yaml
+easytravel_classic_domain: "easytravel-classic.{{ ingress_domain }}" # (Opt)When leveraging an ingress controller, which domain to use for EasyTravel
+easytravel_classic_launcher_domain: "easytravel-launcher.{{ ingress_domain }}" # (Opt)When leveraging an ingress controller, which domain to use for EasyTravel Launcher
+```
 
 ### Configure Dynatrace using Monaco
 
-To enable monaco:
+> Note: in order to use Monaco, it needs to be installed first in your use case. This can be done as follows:
 
 ```yaml
-- name: Deploy Monaco
-  include_role:
+- include_role:
     name: monaco
 ```
 
-> Note: the below applies Dynatrace configurations with the monaco project embedded in the role
+The below applies Dynatrace configurations with the monaco project embedded in the role in the `files/monaco/projects` folder
 
 ```yaml
 - include_role:
@@ -65,22 +85,25 @@ To delete the configuration:
 ```
 
 Dynatrace Configurations List:
-
-    Infrastructure:
-      - "auto-tag/app"
-      - "auto-tag/environment"
-      - "conditional-naming-processgroup/ACE Box - containername.namespace"
-      - "conditional-naming-service/app.environment"
-      - "synthetic-location/ACE-BOX"
     
-    Easytravel Aplication Specific:
-        - "app-detection-rule/app.easytravel.prod"
-        - "app-detection-rule/app.easytravel-angular.prod"
-        - "application-web/app.easytravel.prod"
-        - "application-web/app.easytravel-angular.prod"
-        - "auto-tag/easytravel-prod"
-        - "management-zone/easytravel-prod"
-        - "synthetic-monitor/webcheck.easytravel.prod"
-        - "synthetic-monitor/webcheck.easytravel-angular.prod"
-        - "synthetic-monitor/browser.easytravel-angular.prod.home"
-        - "synthetic-monitor/browser.easytravel.prod.home"
+    Easytravel Classic Aplication Specific:
+        - "app-detection-rule/app.easytravel.classic"
+        - "application-web/app.easytravel.classic"
+        - "management-zone/easytravel-classic"
+
+### Example: Deploy EasyTravel Classic and expose via the ingress controller, monitored by Dynatrace
+
+```yaml
+- include_role:
+    name: dt-oneagent-classic
+
+- include_role:
+    name: microk8s
+
+- include_role:
+    name: app-easytravel-classic
+
+- include_role:
+    name: app-easytravel-classic
+    tasks_from: deploy-ingress
+```

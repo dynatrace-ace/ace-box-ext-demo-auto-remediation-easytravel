@@ -116,7 +116,7 @@
   - name: Add project
     awx.awx.project:
       #name: "self-healing"
-      name: "Automated Remediation"
+      name: "{{ awx_project }}"
       description: ""
       organization: "{{ organization.id }}"
       state: present

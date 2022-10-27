@@ -8,7 +8,7 @@
     tasks_from: apply-monaco
     apply:
       environment:
-        HOST_GROUP_NAME: "{{ host_group }}"
+        EASYTRAVEL_RELEASE_STAGE: "{{ easytravel_classic_release_stage }}"
         INGRESS_DOMAIN: "{{ ingress_domain }}"
   vars:
     monaco_project: "easytravel"

@@ -2,24 +2,27 @@
   "name": "{{ .name }}",
   "rules": [
     {
-      "type": "SERVICE",
+      "type": "PROCESS_GROUP",
       "enabled": true,
       "propagationTypes": [
-        "SERVICE_TO_HOST_LIKE",
-        "SERVICE_TO_PROCESS_GROUP_LIKE"
+        "PROCESS_GROUP_TO_HOST",
+        "PROCESS_GROUP_TO_SERVICE"
       ],
       "conditions": [
         {
           "key": {
-            "attribute": "HOST_GROUP_NAME",
+            "attribute": "PROCESS_GROUP_TAGS",
             "type": "STATIC"
           },
           "comparisonInfo": {
-            "type": "STRING",
+            "type": "TAG",
             "operator": "EQUALS",
-            "value": "{{ .hostGroupName }}",
-            "negate": false,
-            "caseSensitive": true
+            "value": {
+              "context": "ENVIRONMENT",
+              "key": "DT_RELEASE_STAGE",
+              "value": "{{ .etReleaseStage  }}"
+            },
+            "negate": false
           }
         }
       ]
