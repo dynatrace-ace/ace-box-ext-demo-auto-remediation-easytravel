@@ -80,7 +80,7 @@
     tasks_from: create-secrets
 
 - include_role:
-    name: "awx"
+    name: "awx-operator"
 
 - include_tasks:
     file: create-user.yml
