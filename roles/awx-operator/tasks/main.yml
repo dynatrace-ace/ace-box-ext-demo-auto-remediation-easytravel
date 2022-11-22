@@ -11,6 +11,9 @@
     name: awx-operator
     repo_url: "https://ansible.github.io/awx-operator/"
 
+- include_tasks:
+    file: create-secrets.yml
+
 - name: AWX - Template values file
   ansible.builtin.template:
     src: awx-operator-values.yml.j2
