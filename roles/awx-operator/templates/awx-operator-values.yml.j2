@@ -4,8 +4,8 @@ AWX:
   spec:
     service_type: ClusterIP
     ingress_type: ingress
-    ingress_class_name: "{{ awx_ingress_domain }}"
-    hostname: "{{ awx_domain }}"
+    ingress_class_name: "{{ ingress_class }}"
+    hostname: "{{ awx_ingress_domain }}"
     task_privileged: true
     admin_user: {{ awx_admin_user }}
     admin_email: {{ awx_admin_email }}
