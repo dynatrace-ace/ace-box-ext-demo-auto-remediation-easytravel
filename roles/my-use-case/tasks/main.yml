@@ -76,10 +76,6 @@
   when: new_repo_created is defined and new_repo_created == true
 
 - include_role:
-    name: awx
-    tasks_from: create-secrets
-
-- include_role:
     name: "awx-operator"
 
 - include_tasks:
