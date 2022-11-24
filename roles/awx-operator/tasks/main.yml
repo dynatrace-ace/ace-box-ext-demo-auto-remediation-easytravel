@@ -44,5 +44,5 @@
     wait_sleep: 10
     wait_timeout: 900
     wait_condition:
-      type: Complete
+      type: Available
       status: "True"
