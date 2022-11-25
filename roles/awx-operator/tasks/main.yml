@@ -37,12 +37,17 @@
 
 - name: Wait for AWX to be ready
   kubernetes.core.k8s_info:
-    kind: Deployment
+    api_version: awx.ansible.com/v1beta1
+    #kind: Deployment
+    kind: AWX
     wait: yes
     name: awx
     namespace: "{{ awx_namespace }}"
     wait_sleep: 10
     wait_timeout: 900
     wait_condition:
-      type: Available
+      #type: Available
+      #status: "True"
+      reason: Successful
       status: "True"
+      type: Successful
