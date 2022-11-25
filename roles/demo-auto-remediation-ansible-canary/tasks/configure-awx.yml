@@ -1,12 +1,12 @@
 ---
 - name: AWX - Source secrets
   include_role:
-    name: awx
+    name: awx-operator
     tasks_from: source-secrets.yml
 
 - name: AWX - Source configuration
   include_role:
-    name: awx
+    name: awx-operator
     tasks_from: source-configuration.yml
 
 - name: AWX - Source Jenkins secrets
