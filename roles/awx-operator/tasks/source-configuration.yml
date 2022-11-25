@@ -9,7 +9,7 @@
 - name: Source external endpoint
   kubernetes.core.k8s_info:
     kind: Ingress
-    name: "awx"
+    name: "awx-ingress"
     namespace: "{{ awx_namespace }}"
   register: awx_ingress_data
 
