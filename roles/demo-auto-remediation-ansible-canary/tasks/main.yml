@@ -1,7 +1,7 @@
 ---
 
 - include_role:
-    name: dt-activegate-private-synth-classic
+    name: dt-private-synth-activegate-classic
 
 - include_role:
     name: gitea
