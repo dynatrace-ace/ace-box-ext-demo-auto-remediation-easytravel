@@ -38,7 +38,7 @@
   - name: Create default organization
     awx.awx.organization:
       name: "{{ awx_org }}"
-      description: "Default organization"
+      description: "Dynatrace organization"
       state: present
       controller_host: "{{ awx_internal_endpoint }}"
       controller_password: "{{ awx_admin_password }}"
@@ -99,7 +99,7 @@
 
   - name: Create Easytravel credentials
     awx.awx.credential:
-      name: "easyTravel SSH creds"
+      name: "Easytravel SSH Crededentials"
       organization: "{{ organization.id }}"
       state: present
       credential_type: "Machine"
@@ -134,7 +134,7 @@
 
   - name: Create remediation inventory
     awx.awx.inventory:
-      name: "Auto Remediation Inventory"
+      name: "Easytravel Auto Remediation Inventory"
       description: ""
       organization: "{{ organization.id }}"
       variables:
@@ -160,7 +160,7 @@
   - name: Add host easyTravel to inventory
     awx.awx.host:
       name: easyTravel
-      description: "EasyTravel Host"
+      description: "Easytravel Host"
       inventory: "{{ inventory.id }}"
       state: present
       variables:
@@ -173,7 +173,7 @@
   - name: Add host localhost to inventory
     awx.awx.host:
       name: localhost
-      description: "EasyTravel Host"
+      description: "Easytravel Host"
       inventory: "{{ inventory.id }}"
       state: present
       variables:
@@ -186,7 +186,7 @@
 
   - name: Create remediation template
     awx.awx.job_template:
-      name: "Dynatrace Automated Remediation for Memory Leak"
+      name: "Easytravel Remediation"
       job_type: "run"
       organization: "{{ organization.id }}"
       inventory: "{{ inventory.id }}"
