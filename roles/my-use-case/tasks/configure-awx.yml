@@ -1,10 +1,10 @@
 ---
   - include_role:
-      name: awx-operator
+      name: awx
       tasks_from: source-secrets
 
   - include_role:
-      name: awx-operator
+      name: awx
       tasks_from: source-configuration
 
   - name: set fact for ansible AWX URL
