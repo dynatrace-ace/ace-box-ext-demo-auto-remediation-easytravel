@@ -4,7 +4,6 @@
     "alertingProfile": "{{ .alertingProfile }}",
     "active": true,
     "instanceName": "{{ .snowInstance }}",
-    "url": null,
     "username": "{{ .snowUser }}",
     "password": "{{ .snowPassword }}",
     "message": "{ProblemTitle}",
