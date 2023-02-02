@@ -3,7 +3,6 @@
     "name": "{{ .name }}",
     "alertingProfile": "{{ .alertingProfile }}",
     "active": true,
-    "instanceName": "{{ .snowInstance }}",
     "url": "https://{{ .snowInstance }}.service-now.com", 
     "username": "{{ .snowUser }}",
     "password": "{{ .snowPassword }}",
