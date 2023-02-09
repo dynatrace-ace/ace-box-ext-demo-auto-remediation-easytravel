@@ -7,7 +7,8 @@ This external use case contains a demo for Auto Remediation using Dynatrace + An
 Please see below table on ace-box support:
 | Use Case Version | Supported ACE Box version |
 | --- | --- |
-| 1.0 | TBC |
+| v1.0.0 | v1.12.6 |
+| v1.1.0 | v1.13.0 |
 
 ## Components deployed
 
