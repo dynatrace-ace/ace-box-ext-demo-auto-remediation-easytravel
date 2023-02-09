@@ -26,15 +26,14 @@
   include_role:
     name: monaco
     tasks_from: apply-monaco
-    apply:
-      environment:
-        ET_RELEASE_STAGE: "{{ easytravel_release_stage_ }}"
-        SNOW_INSTANCE: "{{ extra_vars.servicenow_instance_id }}"
-        SNOW_USER: "{{ extra_vars.servicenow_instance_user }}"
-        SNOW_PASSWORD: "{{ extra_vars.servicenow_instance_password}}"
   vars:
     monaco_project: "easytravel"
     monaco_projects_root: "{{ monaco_projects_folder }}" 
+    monaco_environment:
+      ET_RELEASE_STAGE: "{{ easytravel_release_stage_ }}"
+      SNOW_INSTANCE: "{{ extra_vars.servicenow_instance_id }}"
+      SNOW_USER: "{{ extra_vars.servicenow_instance_user }}"
+      SNOW_PASSWORD: "{{ extra_vars.servicenow_instance_password}}"
 
 # - include_role:
 #     name: "app-easytravel-classic"
